@@ -20,9 +20,6 @@ get_header();
 		<div class="container">
 			<?php 
 
-						if( function_exists('fau_get_ad') ) {
-								echo fau_get_ad('werbebanner_seitlich', false);
-						}
             
 						// Template part "Topic Boxes"
 						include 'template-parts/template-topic-boxes.php';
@@ -145,9 +142,7 @@ get_header();
 	
 			 }
 			 
-			 	if( function_exists('fau_get_ad') ) {
-					echo fau_get_ad('werbebanner_unten',true);
-				}
+
 
 				$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 				if ($logoliste) { 

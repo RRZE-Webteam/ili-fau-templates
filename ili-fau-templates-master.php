@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Plugin Name:     ILI FAU Templates
+ * Plugin Name:     ILI FAU Templates (RRZE-Webteam Fork)
  * Plugin URI:      https://ili.fau.de
- * Description:     Erweiterung der FAU-Website um zusätzliche Templates
- * Version:         0.1.4
+ * Description:     Erweiterung der FAU-Website um zusätzliche Templates, Fork vom RRZE-Webteam
+ * Version:         0.1.5
  * Author:          Sebastian Honert
  * Author URI:      https://www.ili.fau.de/team/sebastian-honert/
  * License:         GNU General Public License v2
