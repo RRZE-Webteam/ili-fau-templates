@@ -115,8 +115,7 @@ get_header();
 				</div>
 				<aside class="startpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
 					<?php
-					get_template_part('template-parts/sidebar', 'events');
-					get_template_part('template-parts/sidebar');
+					get_template_part('template-parts/sidebar', 'portal');
 					?>
 				</aside>
 			</div> <!-- /row -->
