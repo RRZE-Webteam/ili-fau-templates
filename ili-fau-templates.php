@@ -4,11 +4,11 @@
  * Plugin Name:     ILI FAU Templates (RRZE-Webteam Fork)
  * Plugin URI:      https://ili.fau.de
  * Description:     Erweiterung der FAU-Website um zusätzliche Templates, Fork vom RRZE-Webteam
- * Version:         0.1.5
+ * Version:         1.6.3
  * Author:          Sebastian Honert
  * Author URI:      https://www.ili.fau.de/team/sebastian-honert/
- * License:         GNU General Public License v2
- * License URI:     http://www.gnu.org/licenses/gpl-2.0.html
+ * License:         GNU General Public License v3
+ * License URI:     http://www.gnu.org/licenses/gpl-3.0.html
  * Domain Path:     /languages
  * Text Domain:     ili-fau-templates
  */
@@ -20,7 +20,7 @@ use ILI\FAUTemplates\Main;
 defined('ABSPATH') || exit;
 
 const RRZE_PHP_VERSION = '7.0';
-const RRZE_WP_VERSION = '4.9';
+const RRZE_WP_VERSION = '5.4';
 
 register_activation_hook(__FILE__, 'ILI\FAUTemplates\activation');
 register_deactivation_hook(__FILE__, 'ILI\FAUTemplates\deactivation');
@@ -30,14 +30,12 @@ add_action('plugins_loaded', 'ILI\FAUTemplates\loaded');
 // AJAX
 add_action('admin_init', 'ILI\FAUTemplates\ilifautpl_add_ajax_actions');
 
-function ilifautpl_add_ajax_actions()
-{
+function ilifautpl_add_ajax_actions() {
     add_action('wp_ajax_ilifautpl_get_posts', 'ILI\FAUTemplates\ilifautpl_get_posts_ajax_callback');
     add_action('wp_ajax_nopriv_ilifautpl_get_posts', 'ILI\FAUTemplates\ilifautpl_get_posts_ajax_callback');
 }
 
-function ilifautpl_get_posts_ajax_callback()
-{
+function ilifautpl_get_posts_ajax_callback() {
     $return = array();
      
     $search_results = new \WP_Query( array( 

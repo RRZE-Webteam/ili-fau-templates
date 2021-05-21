@@ -29,21 +29,21 @@ class Meta {
                 
                 add_meta_box(
                     'ilifautpl-slides',
-                    esc_html__( 'Slider (ILI FAU Templates)', 'ilifautpl' ),
+                    esc_html__( 'Slider (ILI FAU Templates)', 'ili-fau-templates' ),
                     array($this, 'landing_page_slides_callback'),
                     $screen
                 );
                 
                 add_meta_box(
                     'ilifautpl-topic-boxes',
-                    esc_html__( 'Themenboxen', 'ilifautpl' ),
+                    esc_html__( 'Themenboxen', 'ili-fau-templates' ),
                     array($this, 'landing_page_topic_boxes_callback'),
                     $screen
                 );
 
                 add_meta_box(
                     'ilifautpl-slider-options',
-                    esc_html__( 'Landing Page Optionen', 'ilifautpl' ),
+                    esc_html__( 'Landing Page Optionen', 'ili-fau-templates' ),
                     array($this, 'landing_page_slider_options_callback'),
                     $screen
                 );
@@ -99,7 +99,7 @@ class Meta {
             }
             
             echo '<input class="ilifautpl-input ilifautpl-input-slide ilifautpl-input-select" type="hidden" id="ilifautpl-input-slide-ids" name="ilifautpl-input-slide-ids[]" value="' . $id . '" placeholder="ID&hellip;">';
-            echo '<div class="ilifautpl-input-slide-id-buttons"><a class="button ilifautpl-input-slide-media ilifautpl-input-select-media" data-id="' . $slide_id . '">' . __('Bild auswählen', 'ili-fau-templates') . '</a> <a class="button ilifautpl-remove-slide" data-placeholder="' . $placeholder . '">' . __('Löschen', 'ilifautpl') . '</a></div>';
+            echo '<div class="ilifautpl-input-slide-id-buttons"><a class="button ilifautpl-input-slide-media ilifautpl-input-select-media" data-id="' . $slide_id . '">' . __('Bild auswählen', 'ili-fau-templates') . '</a> <a class="button ilifautpl-remove-slide" data-placeholder="' . $placeholder . '">' . __('Löschen', 'ili-fau-templates') . '</a></div>';
             echo '<label class="ilifautpl-label" for="ilifautpl-input-slide-orders">Reihenfolge</label>';
             echo '<input class="ilifautpl-input ilifautpl-input-order" type="text" id="ilifautpl-input-slide-orders" name="ilifautpl-input-slide-orders[]" value="' . $order . '" placeholder="0-9999&hellip;">';
             echo '<label class="ilifautpl-label" for="ilifautpl-input-slide-positions">Position (Layout)</label>';
@@ -132,7 +132,7 @@ class Meta {
         }
 
         echo '<a class="button ilifautpl-add-slide" data-placeholder="' . $placeholder . '">' . __('Slide hinzufügen', 'ili-fau-templates') . '</a>';
-        echo '<br><br><input type="submit" name="submit" id="submit" class="button button-primary button-ilifautpl-save" value="' . __('Änderungen speichern', 'ilifautpl' ) . '">';
+        echo '<br><br><input type="submit" name="submit" id="submit" class="button button-primary button-ilifautpl-save" value="' . __('Änderungen speichern', 'ili-fau-templates' ) . '">';
     }
     
     // Topic Boxes

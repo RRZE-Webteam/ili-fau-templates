@@ -7,7 +7,7 @@
 $ilifautpl_topic_boxes = get_post_meta( get_the_ID(), '_ilifautpl_topic_boxes', true );
 
 if( $ilifautpl_topic_boxes ):
-    echo '<section id="ilifautpl-topic-boxes" aria-label="">';
+    echo '<section id="ilifautpl-topic-boxes" aria-label="'. __('Themen', 'ili-fau-templates').'">';
         $topic_boxes_skew = get_post_meta( get_the_ID(), '_ilifautpl_topic_boxes_skew', true );
         if( $topic_boxes_skew === '0' ) {
             echo '<style>.ilifautpl-topic-box::after{display:none}</style>';

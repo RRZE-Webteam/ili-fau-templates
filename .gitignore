@@ -1,3 +1,9 @@
 [Tt]humbs.db
 *.DS_Store
-.sass-cache/
+node_modules
+.idea*
+.sass-cache*
+/package-lock.json
+tmp
+.vscode/sftp.json
+.vscode/sftp.json

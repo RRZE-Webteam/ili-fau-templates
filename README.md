@@ -1,17 +1,28 @@
-
-
-Landing Pages
-=============
-
-Version 0.1.4
-
-***Das Plugin befindet sich derzeit In Entwicklung.*** Die hier angezeigten Informationen sind vorläufig.
-
-## Beschreibung
+# ILI FAU Templates
 
 Das Plugin integriert ein Template für Landing Pages in den Webauftritt. Landing Pages bestehen aus einem Slider und sogenannten Themenboxen.
 
-## Einstellungen
+## Download 
+
+GITHub-Repo: https://github.com/RRZE-Webteam/ili-fau-templates
+
+
+## Autor 
+
+* Sebastian Honert, https://www.ili.fau.de/team/sebastian-honert/
+* RRZE-Webteam , http://www.rrze.fau.de
+
+## Copryright
+
+GNU General Public License (GPL) Version 3
+
+## Zweck 
+
+Ausgabe von Kontakten auf einer Webseite.
+
+
+## Dokumentation
+
 
 Einige grundlegende Einstellungen des Plugins lassen sich unter Einstellungen > ILI FAU Templates vornehmen. Dazu gehören
 
@@ -19,8 +30,7 @@ Einige grundlegende Einstellungen des Plugins lassen sich unter Einstellungen > 
 - die Länge des Anreißertextes der Themenboxen
 - die URL zu einem Fallback-Bild, falls keine Slides ausgewählt wurden
 
-Themenboxen
-----------------
+### Themenboxen
 
 Das Plugin stellt einen neuen Beitragstyp "Themenbox" zur Verfügung. Themenboxen können im Kontext des Landing Page Templates aus einer Liste ausgewählt werden und werden dann unterhalb der Slideshow angezeigt.
 

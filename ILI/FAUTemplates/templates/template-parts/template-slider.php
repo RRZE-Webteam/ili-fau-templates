@@ -10,7 +10,7 @@ $upload_dir = wp_upload_dir();
 $ilifautpl_slider_skew = get_post_meta( get_the_ID(), '_ilifautpl_slider_skew', true );
 $ilifautpl_slider_classes = $ilifautpl_slider_skew === '0' ? 'ilifautpl-dont-skew' : '';
 
-echo '<section id="ilifautpl-hero" class="' . $ilifautpl_slider_classes . '" aria-label="' . __('Slider', 'ilifautpl') . '">';
+echo '<section id="ilifautpl-hero" class="' . $ilifautpl_slider_classes . '" aria-label="' . __('Slider', 'ili-fau-templates') . '">';
 echo '<div class="ilifautpl-hero-inner">';
 echo '<div class="slick-slider">';
 
@@ -24,7 +24,7 @@ function ilifautpl_show_fallback_title() {
         echo '<div class="container">';
             echo '<div class="row">';
                     echo '<div class="ilifautpl-slider-content"><div>';
-                            echo '<h3 class="ilifautpl-no-border">' . get_the_title( get_the_ID() ) . '</h3>';
+                        echo '<span class="ilifautpl-topic-box-title ilifautpl-no-border">' . get_the_title( get_the_ID() ) . '</span>';
                     echo '</div></div>';
             echo '</div>';
         echo '</div>';
@@ -35,6 +35,13 @@ function ilifautpl_get_slide_style( $slideID, $position = '' ) {
     if( ! $slideID )
         return '';
 
+    $checkdefault_img =  wp_get_attachment_image_src( $slideID);
+    if (empty($checkdefault_img)) {
+	$options = get_option('ili_fau_templates');
+	$slideID = $options['ili_fau_templates_slide_default'];
+	$checkdefault_img =  wp_get_attachment_image_src( $options['ili_fau_templates_slide_default']);
+    }
+    
     $ilifautpl_1920 = wp_get_attachment_image_src( $slideID, 'ilifautpl-1920' );
     $ilifautpl_1600 = wp_get_attachment_image_src( $slideID, 'ilifautpl-1600' );
     $ilifautpl_1366 = wp_get_attachment_image_src( $slideID, 'ilifautpl-1366' );
@@ -53,86 +60,97 @@ function ilifautpl_get_slide_style( $slideID, $position = '' ) {
     #ilifautpl-hero .slick-slide {
         background-size:cover;
     }
-
     #ilifautpl-hero .slick-slide-' . $slideID . ' {
         background-position: ' . $position . ';
+	background-image: url(' . $checkdefault_img[0] . ');
     }
-
-    @media screen and (orientation: landscape) and (min-width: 1601px) {
+    ';
+    if ($ilifautpl_1920) {
+    $style .= '@media screen and (orientation: landscape) and (min-width: 1601px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1920[0] . ');
         }
+    }';
     }
-
-    @media screen and (orientation: landscape) and (min-width: 1367px) and (max-width: 1600px) {
+     if ($ilifautpl_1600) {
+    $style .= '@media screen and (orientation: landscape) and (min-width: 1367px) and (max-width: 1600px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1600[0] . ');
         }
-    }
-
-    @media screen and (orientation: landscape) and (min-width: 1025px) and (max-width: 1366px) {
+    }';
+}
+    if ($ilifautpl_1366) {
+    $style .= '@media screen and (orientation: landscape) and (min-width: 1025px) and (max-width: 1366px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1366[0] . ');
         }
+     }';
     }
-
-    @media screen and (orientation: landscape) and (min-width: 801px) and (max-width: 1024px) {
+    if ($ilifautpl_1024) {
+    $style .= '@media screen and (orientation: landscape) and (min-width: 801px) and (max-width: 1024px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1024[0] . ');
         }
+    }';
     }
-
-    @media screen and (orientation: landscape) and (min-width: 641px) and (max-width: 800px) {
+    if ($ilifautpl_800) {
+    $style .= '@media screen and (orientation: landscape) and (min-width: 641px) and (max-width: 800px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_800[0] . ');
         }
+     }';
     }
-
-    @media screen and (orientation: landscape) and (max-width: 640px) {
+    if ($ilifautpl_640) {
+    $style .= '@media screen and (orientation: landscape) and (max-width: 640px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_640[0] . ');
         }
+     }';
     }
-
     /* Portrait */
-
-    @media screen and (orientation: portrait) and (min-height: 1601px) {
+    if ($ilifautpl_1920_portrait) {
+    $style .= '@media screen and (orientation: portrait) and (min-height: 1601px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1920_portrait[0] . ');
         }
+     }';
     }
-
-    @media screen and (orientation: portrait) and (min-height: 1367px) and (max-height: 1600px) {
+    if ($ilifautpl_1600_portrait) {
+    $style .= '@media screen and (orientation: portrait) and (min-height: 1367px) and (max-height: 1600px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1600_portrait[0] . ');
         }
+     }';
     }
-
-    @media screen and (orientation: portrait) and (min-height: 1025px) and (max-height: 1366px) {
+    if ($ilifautpl_1366_portrait) {
+    $style .= '@media screen and (orientation: portrait) and (min-height: 1025px) and (max-height: 1366px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1366_portrait[0] . ');
         }
+    }';
     }
-
-    @media screen and (orientation: portrait) and (min-height: 801px) and (max-height: 1024px)  {
+    if ($ilifautpl_1024_portrait) {
+    $style .= '@media screen and (orientation: portrait) and (min-height: 801px) and (max-height: 1024px)  {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_1024_portrait[0] . ');
         }
+    }';
     }
-
-    @media screen and (orientation: portrait) and (min-height: 641px) and (max-height: 800px) {
+    if ($ilifautpl_800_portrait) {
+    $style .= '@media screen and (orientation: portrait) and (min-height: 641px) and (max-height: 800px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_800_portrait[0] . ');
         }
+    }';
     }
-    
-    @media screen and (orientation: portrait) and (max-height: 640px) {
+    if ($ilifautpl_640_portrait) {
+    $style .= '@media screen and (orientation: portrait) and (max-height: 640px) {
         #ilifautpl-hero .slick-slide-' . $slideID . ' {
             background-image: url(' . $ilifautpl_640_portrait[0] . ');
         }
+     }';
     }
-
-    </style>';
+    $style .= '</style>';
 
     echo $style;
 }
@@ -148,7 +166,12 @@ if( $ilifautpl_has_slides || $ilifautpl_has_thumb ) {
     // Post/Page has slides
     if( $ilifautpl_has_slides ) {
         foreach( $ilifautpl_meta as $key => $slide ):
-            $link_html = ! empty( $slide['link'] ) ? ' <a href="' . $ilifautpl_meta[$key]['link'] . '">' . __('Weiterlesen', 'ilifautpl') . '</a>' : '';
+	    if (!empty($slide['link'])) {
+		 $slide['link'] = esc_url($slide['link']);
+	    }
+	   
+	    
+           
             $ilifautpl_headline = $slide['headline'];
             $ilifautpl_slide_atts = [];
 
@@ -165,15 +188,20 @@ if( $ilifautpl_has_slides || $ilifautpl_has_thumb ) {
                 echo '<div class="container">';
                     echo '<div class="row">';
                         echo '<div class="ilifautpl-slider-content"><div>';
-                            echo '<a href="' . $slide['link'] . '">';
+			    if (!empty($slide['link'])) {
+				echo '<a href="' . $slide['link'] . '">';
+			    }
                                 if( ! empty( $ilifautpl_headline ) )
-                                    echo '<h3>' . $ilifautpl_headline . '</h3>';
+                                    echo '<span class="ilifautpl-topic-box-title">' . $ilifautpl_headline . '</span>';
                                 
                                 if( ! empty( $slide['subtitle'] ) )
                                     echo '<p>' . $slide['subtitle'] . '</p>';
-                            
+				
+                            //  $link_html = ! empty( $slide['link'] ) ? ' <a href="' . $ilifautpl_meta[$key]['link'] . '">' . __('Weiterlesen', 'ilifautpl') . '</a>' : '';
                             // echo '<p>' . $slide['subtitle'] . '<span class="ilifautpl-slide-read-more">' . $link_html . '</span></p>';
-                            echo '</a>';
+			    if (!empty($slide['link'])) {
+				echo '</a>';
+			    }
                         echo '</div></div>';
                     echo '</div>';
                 echo '</div>';

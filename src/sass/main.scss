@@ -1,5 +1,8 @@
-$color_1: #fff;
-$font_family_1: 'FontAwesome';
+
+
+// Import variables
+@import "variables";
+
 
 .ilifautpl-slider-fallback {
     display: block;
@@ -9,11 +12,12 @@ $font_family_1: 'FontAwesome';
 #ilifautpl-hero {
 	position: relative;
 	background: #fff;
-  margin: 0 0 2em;
-  .row,
-  .container {
-    height: 100%;
-  }
+	margin: 0 0 2em;
+	
+       .row,
+       .container {
+	 height: 100%;
+       }
 	&::after {
 		content: '';
 		width: 100%;
@@ -36,9 +40,9 @@ $font_family_1: 'FontAwesome';
 		display: block;
 		max-width: 1920px;
 		margin: 0 auto;
-  }
+	 }
 	.slick-slider {
-    position: relative;
+		position: relative;
 		.ilifautpl-slide-overlay {
 			position: absolute;
 			z-index: 0;
@@ -54,10 +58,10 @@ $font_family_1: 'FontAwesome';
 			background: rgba(0, 0, 0, .3);
 		}
 		.ilifautpl-slide-overlay--blue-gradient {
-			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 45%, rgba(0, 51, 102, .8)),
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 45%, rgba(0, 51, 102, .8));
 		}
 		.ilifautpl-slide-overlay--black-gradient {
-			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, .8)),
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, .8));
 		}
 		.slick-dots {
 			bottom: -30px;
@@ -106,25 +110,20 @@ $font_family_1: 'FontAwesome';
 				margin-right: .25em;
 			}
 		}
-  }
-	.ilifautpl-slider-content {
-		box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 3em;
-    width: calc(100% - 30px);
-    height: 100%;
-    margin: 0 15px;
-    position: relative;
-    z-index: 1;
+    }
+    .ilifautpl-slider-content {
+	box-sizing: border-box;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	text-align: center;
+	padding-bottom: 3em;
+	width: calc(100% - #{$fau-gutter-width});
+	height: 100%;
+	margin: 0 15px;
+	position: relative;
+	z-index: 1;
+	
 		a,
 		a:hover,
 		a:active,
@@ -132,35 +131,33 @@ $font_family_1: 'FontAwesome';
 			text-decoration: none;
 			font-weight: 400;
 		}
-		h3 {
+		.ilifautpl-topic-box-title {
 			display: block;
 			color: $color_1;
 			font-size: 3.5rem;
 			letter-spacing: 1px;
-      margin-left: 0;
-      margin-right: 0;
+			margin-left: 0;
+			margin-right: 0;
 			line-height: 1.1;
 			text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
-      padding: 0 0 .125em;
-      transform: scale(1);
-      transition: transform .75s ease-in-out;
-			-webkit-hyphens: manual;
-     	-moz-hyphens: manual;
-      -ms-hyphens: manual;
-      hyphens: manual;
-      &:hover {
-        transform: scale(1.025);
-      }
+			padding: 0 0 .125em;
+			transform: scale(1);
+			transition: transform .75s ease-in-out;
+			hyphens: manual;
+      
+			&:hover {
+			  transform: scale(1.025);
+			}
 		}
 		p {
 			display: block;
 			color: $color_1;
 			font-size: 1.75em;
 			line-height: 1.33;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
-      padding: 0 1em;
-      margin-top: .25em;
-    }
+			text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+			padding: 0 1em;
+			margin-top: .25em;
+		      }
 	}
 	.ilifautpl-arrow {
 		position: absolute;
@@ -208,26 +205,20 @@ $font_family_1: 'FontAwesome';
 		opacity: .9;
 	}
 }
+
+
 .ilifautpl-topic-boxes {
-	display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-	display: -ms-flexbox;  /* TWEENER - IE 10 */
-	display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-	display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
-	-webkit-flex-wrap: wrap;
-	-moz-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	-o-flex-wrap: wrap;
-	flex-wrap: wrap;
-	margin-left: -1em;
-  margin-right: -1em;
-  justify-content: center;
+    display: flex;         
+    flex-wrap: wrap;
+   justify-content: center;
 }
 .ilifautpl-topic-box {
 	transition: all .3s ease-out;
 	margin-bottom: 1em;
-	padding: 1em;
+	padding: floor(($fau-gutter-width / 2));
 	position: relative;
-	h3.ilifautpl-topic-box-title {
+	
+	.ilifautpl-topic-box-title {
 		box-sizing: border-box;
 		margin: 0;
 		color: $color_1;
@@ -243,9 +234,10 @@ $font_family_1: 'FontAwesome';
 		text-transform: uppercase;
 		width: 100%;
 		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+		
 		.ilifautpl-topic-box-title-text {
-      position: relative;
-      z-index: 3;
+		    position: relative;
+		    z-index: 3;
 		}
 	}
 	p {
@@ -296,6 +288,8 @@ $font_family_1: 'FontAwesome';
 .ilifautpl-landing-page-content {
     padding-bottom: 1.5em;
 }
+
+
 /* More Responsive Stuff */
 @media screen and (min-width: 1921px) {
 	#ilifautpl-hero {
@@ -309,7 +303,7 @@ $font_family_1: 'FontAwesome';
 	}
 }
 @media screen and (max-width: 991px) {
-	#ilifautpl-hero {
+    #ilifautpl-hero {
 		&::after {
 			height: 7.5em;
 			margin-top: 2.5em;
@@ -317,68 +311,67 @@ $font_family_1: 'FontAwesome';
 		}
 		.ilifautpl-arrow {
 			font-size: 6.25em;
-    }
-    .ilifautpl-slider-content {
-      h3 {
-        font-size: 2.875em;
-      }
-      p {
-        font-size: 1.4375em;
-      }
-    }
+		}
+		.ilifautpl-slider-content {
+		    .ilifautpl-topic-box-title {
+			font-size: 2.875em;
+		    }
+		    p {
+			font-size: 1.4375em;
+		    }
+		}
   }
-  
   .ilifautpl-slider-fallback {
       margin-top: 1.5em;
   }
 }
 @media screen and (min-width: 1920px) {
   #ilifautpl-hero {
-    .ilifautpl-slider-content {
-      h3 {
-        font-size: 3.75em;
-      }
-      p {
-        font-size: 2em;
-      }
-    }
+	.ilifautpl-slider-content {
+	    .ilifautpl-topic-box-title {
+		font-size: 3.75em;
+	    }
+	    p {
+		font-size: 2em;
+	    }
+	}
   }
 }
 @media screen and (max-width: 1024px) {
   .ilifautpl-slider-content {
-    h3 {
-      font-size: 2.5em;
-      line-height: 1.2;
-    }
-    p {
-      margin-top: .375em;
-      font-size: 1.375em;
-    }
+	.ilifautpl-topic-box-title {
+	    font-size: 2.5em;
+	    line-height: 1.2;
+	}
+	p {
+	    margin-top: .375em;
+	    font-size: 1.375em;
+	}
   }
 }
 @media screen and (max-width: 768px) {
     .ilifautpl-slider-fallback {
-      margin-top: 0;
+	 margin-top: 0;
     }
 }
 @media screen and (min-width: 768px) {
 	#ilifautpl-hero,
-  .ilifautpl-slider-fallback {
-		padding-top: 9em;
-	}
+	.ilifautpl-slider-fallback {
+		  padding-top: 9em;
+	 }
 }
 @media screen and (max-width: 767px) {
 	#ilifautpl-hero {
-    margin-bottom: 3em;
-    .ilifautpl-slider-content {
-      padding: 0 3.5em 3em 3.5em;
-      h3 {
-        font-size: 2.25em;
-      }
-      p {
-        padding: 0 0;
-      }
-    }
+	    margin-bottom: 3em;
+	    .ilifautpl-slider-content {
+		padding: 0 3.5em 3em 3.5em;
+		.ilifautpl-topic-box-title {
+		  font-size: 2.25em;
+		}
+		p {
+		  padding: 0 0;
+		}
+	    }
 		&::after {
 			display: none;
 		}
@@ -389,81 +382,73 @@ $font_family_1: 'FontAwesome';
 	}
 }
 @media screen and (max-width: 640px) {
-	#ilifautpl-hero {
-    .ilifautpl-slider-content {
-      h3 {
-        font-size: 2em;
-      }
-      p {
-        font-size: 1.25em;
-      }
-	  }
-    .slick-slide {
-      .ilifautpl-slide-credits {
-        font-size: 0.625em;
-      }
-    }
+    #ilifautpl-hero {
+	.ilifautpl-slider-content {
+	    .ilifautpl-topic-box-title {
+	      font-size: 2em;
+	    }
+	    p {
+	      font-size: 1.25em;
+	    }
 	}
+	.slick-slide {
+		.ilifautpl-slide-credits {
+		  font-size: 0.625em;
+		}
+	}
+    }
 }
 @media screen and (max-width: 479px) {
 	#ilifautpl-hero {
-    .ilifautpl-slider-content {
-      padding: 0 2em 3em 2em;
-			h3 {
-				font-size: 1.75em;
-			}
-			p {
-				font-size: 1.125em;
-			}
+	    .ilifautpl-slider-content {
+		padding: 0 2em 3em 2em;
+		
+		.ilifautpl-topic-box-title {
+			font-size: 1.75em;
 		}
+		p {
+			font-size: 1.125em;
+		}
+	    }
 	}
 }
 
 @media screen and (max-width: 380px) {
-	#ilifautpl-hero {
-    .ilifautpl-slider-content {
-			h3 {
-				font-size: 1.5em;
-			}
-			p {
-				font-size: 1em;
-			}
+    #ilifautpl-hero {
+	.ilifautpl-slider-content {
+		.ilifautpl-topic-box-title {
+			font-size: 1.5em;
+		}
+		p {
+			font-size: 1em;
 		}
 	}
+    }
 }
 /* Topic Boxes Responsive */
 @media screen and (min-width: 992px) {
 	.ilifautpl-topic-box {
-		-webkit-box-flex: 0 1 33.33%; /* OLD - iOS 6-, Safari 3.1-6 */
-		width: 33.33%;                /* For old syntax, otherwise collapses. */
-		-webkit-flex: 0 1 33.33%;     /* Safari 6.1+. iOS 7.1+, BB10 */
-		-ms-flex: 0 1 33.33%;         /* IE 10 */
+		width: 33.33%;                
 		flex: 0 1 33.33%;
 		max-width: 33.33%;
 	}
 }
 @media screen and (min-width: 481px) and (max-width: 991px) {
 	.ilifautpl-topic-box {
-		-webkit-box-flex: 0 1 50%; /* OLD - iOS 6-, Safari 3.1-6 */
-		width: 50%;                /* For old syntax, otherwise collapses. */
-		-webkit-flex: 0 1 50%;     /* Safari 6.1+. iOS 7.1+, BB10 */
-		-ms-flex: 0 1 50%;         /* IE 10 */
+		width: 50%;               
 		flex: 0 1 50%;
 		max-width: 50%;
 	}
 }
 @media screen and (max-width: 540px) {
 	.ilifautpl-topic-box {
-		-webkit-box-flex: 0 1 100%; /* OLD - iOS 6-, Safari 3.1-6 */
-		width: 100%;                /* For old syntax, otherwise collapses. */
-		-webkit-flex: 0 1 100%;     /* Safari 6.1+. iOS 7.1+, BB10 */
-		-ms-flex: 0 1 100%;         /* IE 10 */
+		width: 100%;               
 		flex: 0 1 100%;
-    max-width: 360px;
+		max-width: 360px;
 	}
 }
 @media screen and (max-width: 360px) {
 	.ilifautpl-topic-box {
-    max-width: 100%;
+	    max-width: 100%;
 	}
 }

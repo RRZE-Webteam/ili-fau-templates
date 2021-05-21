@@ -81,16 +81,16 @@ class Shortcodes {
                 }
                 
                 $html .= '<div class="ilifautpl-topic-box" id="ilifautpl-topic-box-' . $key  . '" itemtype="http://schema.org/WebPage" itemscope>';
-                    $html .= '<div aria-hidden="true" role="presentation" tabindex="-1" class="passpartout" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">';
+                    $html .= '<div aria-hidden="true" role="presentation" class="passpartout" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">';
                         $html .= '<meta itemprop="url" content="' . get_the_post_thumbnail_url( $box->ID, 'ilifautpl-topic-box' ) . '">';
-                        $html .= '<a class="ilifautpl-topic-box-image" href="' . $topic_box_url . '" style="background:url(' . get_the_post_thumbnail_url( $box->ID, 'ilifautpl-topic-box') . ')">';
-                            $html .= '<h3 itemprop="title" class="ilifautpl-topic-box-title"><span class="ilifautpl-h3-layer"></span><span class="ilifautpl-topic-box-title-text">' . $box->post_title . '</span></h3>';
+                        $html .= '<a tabindex="-1" class="ilifautpl-topic-box-image" href="' . $topic_box_url . '" style="background:url(' . get_the_post_thumbnail_url( $box->ID, 'ilifautpl-topic-box') . ')">';
+                            $html .= '<span itemprop="title" class="ilifautpl-topic-box-title"><span class="ilifautpl-h3-layer"></span><span class="ilifautpl-topic-box-title-text">' . $box->post_title . '</span></span>';
                         $html .= '</a>';
                     $html .= '</div>';
                     $html .= '<p itemprop="description">' . $topic_box_excerpt;
 
                     if( $show_read_more ) {
-                        $html .= ' <a aria-hidden="true" tabindex="-1" href="' . $topic_box_url . '">' . __('Weiterlesen', 'ilifautpl') . '</a><span class="screen-reader-text">' . __('Weiterlesen', 'ilifautpl') . '</span>';
+                        $html .= ' <a aria-hidden="true" tabindex="-1" href="' . $topic_box_url . '">' . __('Weiterlesen', 'ili-fau-templates') . '</a>';
                     }
                     
                     $html .= '</p>';

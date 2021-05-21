@@ -41,7 +41,7 @@ class CustomPostTypes {
     public function add_topic_box_metaboxes() {
         add_meta_box(
             'ilifautpl-topic-box-target-id',
-            esc_html__( 'Vernküpfter Inhalt (Titel)', 'ilifautpl' ),
+            esc_html__( 'Vernküpfter Inhalt (Titel)', 'ili-fau-templates' ),
             array($this, 'ilifautpl_topic_box_target_id_callback')
         );
         
@@ -63,7 +63,7 @@ class CustomPostTypes {
         $post_title = ! empty( $this_post ) ? $this_post->post_title : 'Inhalt nicht gefunden';
         
         if( ! $post_id )
-            echo '<p>' . __('Themenboxen müssen mit einem existierenden Inhalt verknüpft sein.', 'ilifautpl') . '</p>';
+            echo '<p>' . __('Themenboxen müssen mit einem existierenden Inhalt verknüpft sein.', 'ili-fau-templates') . '</p>';
         
         echo '<select name="_ilifautpl_topic_box_target_id" class="widefat ilifautpl-select-posts" />';
         echo '<option value="">Bitte wählen&hellip;</option>';
