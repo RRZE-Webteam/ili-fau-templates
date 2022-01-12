@@ -16,14 +16,17 @@ get_header();
             echo '<div class="ilifautpl-slider-fallback"></div>';
         } ?>
     
-	<div id="content">
-		<div class="container">
-			<div class="row">
+	<div id="content" class="start">
+		<div class="content-container">	   
+		    <div class="content-row">
+		
     				<?php 
 				// Template part "Topic Boxes"
 				    include 'template-parts/template-topic-boxes.php';
 				?>
-    				<div class="startpage-blogroll">
+		    </div>
+			 <div class="content-row">
+			    <div class="portalpage-content">	
     				    <main <?php if( function_exists('fau_get_page_langcode') ) { echo fau_get_page_langcode($post->ID); } ?>>
                         
     					<h1 class="screen-reader-text"><?php the_title(); ?></h1>
@@ -130,26 +133,24 @@ get_header();
 				$nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
 				
 				if( function_exists('fau_get_contentmenu') ) {
-						fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
+				    fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
 				}
 	
 			 }
 			 
 
-
+			    if( function_exists('fau_imagelink_get') ) {
 				$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 				if ($logoliste) { 
-						/* New since 1.10.57 */
-						$logos = [];
-						
-						if( function_exists('fau_imagelink_get') ) {
-							$logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
-						}
-						
-						if ((isset($logos) && (!empty($logos)))) {
-						echo "<hr>\n";
-						echo $logos;
+					    /* New since 1.10.57 */
+					    $logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
+
+
+					    if ((isset($logos) && (!empty($logos)))) {
+					    echo "<hr>\n";
+					    echo $logos;
 				}
+			    }
 			}		
 			 ?>			
 		</div> <!-- /container -->

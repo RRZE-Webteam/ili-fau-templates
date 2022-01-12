@@ -13,6 +13,10 @@
 	position: relative;
 	background: #fff;
 	margin: 0 0 2em;
+	display: none;
+	@media screen and (min-width: 768px) {
+	    display: block;
+	}
 	
        .row,
        .container {
@@ -64,14 +68,35 @@
 			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, .8));
 		}
 		.slick-dots {
-			bottom: -30px;
+		    li button {
+			color: var(--color-button-bg);	
+		    }
+		    li button:focus,
+		    li button:hover {
+			background: transparent;
+			color: var(--color-primary-ci-hell);
+		    }
+		    li.slick-active button::before {
+			color: var(--color-button-bg);
+		    }
+		    li button:focus::before,
+		    li button:hover::before,
+		    li.slick-active button:hover::before {
+			color: var(--color-primary-ci-hell);
+			background-color: var(--color-primary-ci-hell-kontrast);
+		    }
+		    
 			li {
-				width: 16px;
-				height: 16px;
+				width: 1rem;
+				height: 1rem;
+				
+				button:before {
+				    font-size: 1rem;
+				    line-height: 1.5;
+				}
 			}
-			li button:before {
-				font-size: 10px;
-			}
+			
+			
 		}
 	}
 	.slick-slide {
@@ -306,7 +331,7 @@
     #ilifautpl-hero {
 		&::after {
 			height: 7.5em;
-			margin-top: 2.5em;
+			margin-top: 0;
 			transform: skewY(-2deg);
 		}
 		.ilifautpl-arrow {
@@ -354,77 +379,16 @@
 	 margin-top: 0;
     }
 }
+
 @media screen and (min-width: 768px) {
-	#ilifautpl-hero,
-	.ilifautpl-slider-fallback {
-		  padding-top: 9em;
-	 }
-}
-@media screen and (max-width: 767px) {
-	#ilifautpl-hero {
-	    margin-bottom: 3em;
-	    .ilifautpl-slider-content {
-		padding: 0 3.5em 3em 3.5em;
-		.ilifautpl-topic-box-title {
-		  font-size: 2.25em;
-		}
-		p {
-		  padding: 0 0;
-		}
-	    }
-		&::after {
-			display: none;
-		}
-		.slick-slide {
-			height: 50vh;
-			min-height: 15em;
-    }
-	}
-}
-@media screen and (max-width: 640px) {
-    #ilifautpl-hero {
-	.ilifautpl-slider-content {
-	    .ilifautpl-topic-box-title {
-	      font-size: 2em;
-	    }
-	    p {
-	      font-size: 1.25em;
-	    }
-	}
-	.slick-slide {
-		.ilifautpl-slide-credits {
-		  font-size: 0.625em;
-		}
-	}
-    }
-}
-@media screen and (max-width: 479px) {
-	#ilifautpl-hero {
-	    .ilifautpl-slider-content {
-		padding: 0 2em 3em 2em;
-		
-		.ilifautpl-topic-box-title {
-			font-size: 1.75em;
-		}
-		p {
-			font-size: 1.125em;
-		}
-	    }
-	}
+    #ilifautpl-hero,
+    .ilifautpl-slider-fallback {
+	      padding-top: 9em;
+     }
 }
 
-@media screen and (max-width: 380px) {
-    #ilifautpl-hero {
-	.ilifautpl-slider-content {
-		.ilifautpl-topic-box-title {
-			font-size: 1.5em;
-		}
-		p {
-			font-size: 1em;
-		}
-	}
-    }
-}
+
+
 /* Topic Boxes Responsive */
 @media screen and (min-width: 992px) {
 	.ilifautpl-topic-box {
