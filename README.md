@@ -23,6 +23,9 @@ Ausgabe von Kontakten auf einer Webseite.
 
 ## Dokumentation
 
+**ACHTUNG: Dieses Plugin wird nicht weiter entwickelt und zum Frühjahr 2022 für Installationen der FAU abgeschafft**
+
+
 
 Einige grundlegende Einstellungen des Plugins lassen sich unter Einstellungen > ILI FAU Templates vornehmen. Dazu gehören
 
