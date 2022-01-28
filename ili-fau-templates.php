@@ -4,7 +4,7 @@
  * Plugin Name:     ILI FAU Templates (RRZE-Webteam Fork)
  * Plugin URI:      https://ili.fau.de
  * Description:     Erweiterung der FAU-Website um zusätzliche Templates, Fork vom RRZE-Webteam
- * Version:         1.6.5
+ * Version:         1.6.6
  * Author:          Sebastian Honert
  * Author URI:      https://www.ili.fau.de/team/sebastian-honert/
  * License:         GNU General Public License v3
@@ -20,7 +20,7 @@ use ILI\FAUTemplates\Main;
 defined('ABSPATH') || exit;
 
 const RRZE_PHP_VERSION = '7.0';
-const RRZE_WP_VERSION = '5.4';
+const RRZE_WP_VERSION = '5.9';
 
 register_activation_hook(__FILE__, 'ILI\FAUTemplates\activation');
 register_deactivation_hook(__FILE__, 'ILI\FAUTemplates\deactivation');
@@ -191,10 +191,10 @@ function register_scripts_and_styles() {
     if( ! $is_ilifautpl_landing_page && ! $has_ilifautpl_topic_box_shortcode )
         return;
 
-    wp_register_style( 'ili-fau-templates', plugins_url('assets/css/main.css', __FILE__ ) );
+    wp_register_style( 'ili-fau-templates', plugins_url('assets/css/ilifautpl.css', __FILE__ ) );
     wp_enqueue_style( 'ili-fau-templates' );
     
-    wp_register_script( 'ili-fau-templates-main', plugins_url('assets/js/main.js', __FILE__), array('jquery'), '0.0.1', true );
+    wp_register_script( 'ili-fau-templates-main', plugins_url('assets/js/ilifautpl.js', __FILE__), array('jquery'), '0.0.1', true );
     wp_enqueue_script( 'ili-fau-templates-main' );
 
     // Localize scripts
@@ -247,10 +247,10 @@ function register_admin_scripts_and_styles()
     $options = get_option('ili_fau_templates');
     $max_num_slides = $options['ili_fau_templates_max_num_slides'] ? $options['ili_fau_templates_max_num_slides'] : 3;
     
-    wp_register_script( 'ili-fau-templates-admin', plugins_url('assets/js/admin.js', __FILE__), array('jquery'), '0.0.1', true );
+    wp_register_script( 'ili-fau-templates-admin', plugins_url('assets/js/ilifautpl-admin.js', __FILE__), array('jquery'), '0.0.1', true );
     wp_enqueue_script( 'ili-fau-templates-admin' );
     
-    wp_register_style( 'ili-fau-templates-admin', plugins_url('assets/css/admin.css', __FILE__ ) );
+    wp_register_style( 'ili-fau-templates-admin', plugins_url('assets/css/ilifautpl-admin.css', __FILE__ ) );
     wp_localize_script( 'ili-fau-templates-admin', 'ilifautpl_options_admin', array(
         'max_num_slides' => $max_num_slides
     ) );

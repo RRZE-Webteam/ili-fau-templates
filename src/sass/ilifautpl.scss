@@ -149,6 +149,8 @@
 	position: relative;
 	z-index: 1;
 	
+
+	
 		a,
 		a:hover,
 		a:active,
@@ -159,11 +161,11 @@
 		.ilifautpl-topic-box-title {
 			display: block;
 			color: $color_1;
-			font-size: 3.5rem;
+			font-size: 2.5rem;
 			letter-spacing: 1px;
 			margin-left: 0;
 			margin-right: 0;
-			line-height: 1.1;
+			line-height: 1.5;
 			text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
 			padding: 0 0 .125em;
 			transform: scale(1);
@@ -173,15 +175,45 @@
 			&:hover {
 			  transform: scale(1.025);
 			}
+			
+			@media screen and (min-width: 768px) {
+			    font-size: 2.8rem;
+			}
+			@media screen and (min-width: 1024px) {
+			     font-size: 3.5rem;
+			}
+			@media screen and (min-width: 1920px) {
+			    font-size: 3.7rem;
+			}
+			
 		}
+		
+		
+		
 		p {
 			display: block;
 			color: $color_1;
-			font-size: 1.75em;
+			
 			line-height: 1.33;
 			text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
 			padding: 0 1em;
-			margin-top: .25em;
+			margin-top: .375em;
+			font-size: 1.3rem;
+			
+			@media screen and (min-width: 768px) {
+			    font-size: 1.4rem;
+			}
+			
+			@media screen and (min-width: 1024px) {
+				font-size: 1.7rem;
+				margin-top: .25em;
+			}
+			@media screen and (min-width: 1920px) {
+			    font-size: 2rem;
+			}
+			
+			
+			
 		      }
 	}
 	.ilifautpl-arrow {
@@ -337,43 +369,12 @@
 		.ilifautpl-arrow {
 			font-size: 6.25em;
 		}
-		.ilifautpl-slider-content {
-		    .ilifautpl-topic-box-title {
-			font-size: 2.875em;
-		    }
-		    p {
-			font-size: 1.4375em;
-		    }
-		}
   }
   .ilifautpl-slider-fallback {
       margin-top: 1.5em;
   }
 }
-@media screen and (min-width: 1920px) {
-  #ilifautpl-hero {
-	.ilifautpl-slider-content {
-	    .ilifautpl-topic-box-title {
-		font-size: 3.75em;
-	    }
-	    p {
-		font-size: 2em;
-	    }
-	}
-  }
-}
-@media screen and (max-width: 1024px) {
-  .ilifautpl-slider-content {
-	.ilifautpl-topic-box-title {
-	    font-size: 2.5em;
-	    line-height: 1.2;
-	}
-	p {
-	    margin-top: .375em;
-	    font-size: 1.375em;
-	}
-  }
-}
+
 @media screen and (max-width: 768px) {
     .ilifautpl-slider-fallback {
 	 margin-top: 0;
@@ -415,4 +416,26 @@
 	.ilifautpl-topic-box {
 	    max-width: 100%;
 	}
+}
+
+
+
+.page-template-template-landing-page #ilifautpl-hero::after {
+    top: 0;
+    height: 4em;
+}
+
+
+.page-template-template-landing-page  {
+    #ilifautpl-hero {
+	padding-top: 4em;
+
+	.page-template-template-landing-page.admin-bar & {
+	    margin-top: 32px;
+	}
+
+	.ilifautpl-hero-inner {
+	    max-width: 100vw;
+	} 
+    }
 }
